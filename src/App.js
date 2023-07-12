@@ -39,19 +39,37 @@ const App = () => {
   return (
     <div>
       {isSubmitted ? (
-        <MadlibStory story={story} />
+        <div>
+          {/* Render the story with the form entries */}
+          <p>
+            While Harper is hilarious, it was truly her {adjective1} that led her to becoming the {adjective2}, the best {noun1} that ever lived.
+          </p>
+          <p>
+            Mia was the silliest {noun2} I knew, but most people didn't know she could also {verb}, and was very {adjective1}.
+          </p>
+          <p>
+            Beetles the cat was as precious as {noun2}, and as {adjective2} as a lion! She was the best at {verb}.
+          </p>
+          <button onClick={handleRestart}>Restart</button>
+        </div>
       ) : (
-        <MadlibForm
-          onSubmit={handleSubmit}
-          onNounChange={handleNounChange}
-          onVerbChange={handleVerbChange}
-          onAdjectiveChange={handleAdjectiveChange}
-        />
+        <form onSubmit={handleSubmit}>
+          {/* Form fields go here */}
+          <button type="submit">Submit</button>
+        </form>
       )}
     </div>
   );
-};
-
+  
+  const handleRestart = () => {
+    setIsSubmitted(false);
+    setAdjective1('');
+    setAdjective2('');
+    setNoun1('');
+    setNoun2('');
+    setVerb('');
+  };
+  
 export default App;
 
 
