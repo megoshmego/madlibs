@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MadlibForm from './MadlibForm';
 import MadlibStory from './MadlibStory';
+import './App.css';
 
 const App = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
